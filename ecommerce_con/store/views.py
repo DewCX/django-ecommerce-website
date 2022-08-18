@@ -18,7 +18,8 @@ def store(request):
         items = []
         order = {
             "get_cart_total":0,
-            "get_cart_items":0
+            "get_cart_items":0,
+            'shipping':False
         }      
         cartItems = order['get_cart_items']  
 
@@ -26,7 +27,8 @@ def store(request):
     products = Product.objects.all()
     context = {
         "products":products,
-        "cartItems":cartItems
+        "cartItems":cartItems,
+        'shipping':False
     }
     return render(request, 'store/store.html', context)
 
@@ -43,7 +45,8 @@ def cart(request):
         items = []
         order = {
             "get_cart_total":0,
-            "get_cart_items":0
+            "get_cart_items":0,
+            'shipping':False
         }
         cartItems = order['get_cart_items']  
 
